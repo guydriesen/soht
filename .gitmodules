@@ -1,0 +1,6 @@
+[submodule "client"]
+	path = client
+	url = ../soht-client
+[submodule "server"]
+	path = server
+	url = ../soht-server
