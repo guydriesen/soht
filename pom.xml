@@ -14,16 +14,17 @@
     <module>server</module>
   </modules>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>1.5</java.version>
-  </properties>
-
   <scm>
     <url>https://github.com/guydriesen/soht</url>
     <connection>scm:git:ssh://github.com/guydriesen/soht.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/guydriesen/soht.git</developerConnection>
   </scm>
+
+  <properties>
+    <main.basedir>${project.basedir}</main.basedir>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.5</java.version>
+  </properties>
 
   <build>
     <plugins>
@@ -87,11 +88,25 @@
         <version>1.2.8</version>
       </dependency>
       <dependency>
+        <groupId>org.apache.taglibs</groupId>
+        <artifactId>i18n</artifactId>
+        <version>1.0.N20040725</version>
+      </dependency>
+      <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
         <version>2.4</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <!-- http://stackoverflow.com/questions/3642023/having-a-3rd-party-jar-included-in-maven-shaded-jar-without-adding-it-to-local-r -->
+  <!-- mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=lib/taglibs-i18n.jar -DgroupId=org.apache.taglibs -DartifactId=i18n -Dversion=1.0.N20040725 -->
+  <repositories>
+    <repository>
+      <id>repo</id>
+      <url>file:///${main.basedir}/repo</url>
+    </repository>
+  </repositories>
 
 </project>
