@@ -3,7 +3,7 @@
 
   <groupId>soht</groupId>
   <artifactId>soht</artifactId>
-  <version>0.7.0</version>
+  <version>0.7.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>SOHT: parent pom</name>
